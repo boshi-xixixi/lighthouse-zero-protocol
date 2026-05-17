@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>灯塔零点协议 | LIGHTHOUSE: ZERO PROTOCOL</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- 粒子覆盖层 -->
+    <div class="grain-overlay" id="grainOverlay"></div>
+
+    <!-- 路由视图容器 -->
+    <div id="router-view"></div>
+
+    <!-- 全局弹层容器 -->
+    <div id="modal-container"></div>
+  </div>
+
+  <!-- Howler.js 音频库 (本地) -->
+  <script src="js/lib/howler.min.js"></script>
+
+  <!-- 数据文件 -->
+  <script src="js/data.js"></script>
+  <script src="js/ending.js"></script>
+
+  <!-- TTS 语音系统 -->
+  <script src="js/tts-config.js"></script>
+  <script src="js/tts-manager.js"></script>
+
+  <!-- 游戏模块 -->
+  <script src="js/games/match3.js"></script>
+  <script src="js/games/sliding.js"></script>
+  <script src="js/games/memory.js"></script>
+  <script src="js/games/code.js"></script>
+
+  <!-- 主应用 -->
+  <script src="js/app.js"></script>
+</body>
+</html>

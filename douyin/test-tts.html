@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TTS 语音系统测试</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: #fff;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    .container { max-width: 800px; margin: 0 auto; }
+    h1 { 
+      text-align: center; 
+      margin-bottom: 2rem; 
+      font-size: 2rem;
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .test-section {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(10px);
+    }
+    .test-section h2 {
+      color: #fbbf24;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+    button {
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      color: #000;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin: 0.5rem;
+      display: inline-block;
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(251, 191, 36, 0.4);
+    }
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .status {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: rgba(0,0,0,0.3);
+      border-radius: 8px;
+      font-family: monospace;
+      white-space: pre-wrap;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    .log-info { color: #60a5fa; }
+    .log-success { color: #34d399; }
+    .log-warn { color: #fbbf24; }
+    .log-error { color: #f87171; }
+    .audio-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .audio-item {
+      background: rgba(255,255,255,0.05);
+      padding: 0.75rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+    }
+    .audio-item:hover {
+      background: rgba(251, 191, 36, 0.1);
+      border-color: rgba(251, 191, 36, 0.3);
+    }
+    .audio-item.playing {
+      background: rgba(251, 191, 36, 0.2);
+      border-color: #fbbf24;
+    }
+    .audio-name { font-weight: 600; margin-bottom: 0.25rem; }
+    .audio-desc { font-size: 0.85rem; color: #9ca3af; }
+    .controls {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎙️ TTS 语音系统测试面板</h1>
+
+    <!-- 系统状态 -->
+    <div class="test-section">
+      <h2>📊 系统状态</h2>
+      <button onclick="checkStatus()">检查 TTS 状态</button>
+      <button onclick="clearLog()">清空日志</button>
+      <div id="status" class="status">点击按钮查看状态...</div>
+    </div>
+
+    <!-- API 测试 -->
+    <div class="test-section">
+      <h2>🌐 实时 TTS 测试（需要网络）</h2>
+      <button id="btnTestAPI" onclick="testRealtimeTTS()">测试实时 TTS API</button>
+      <p style="margin-top: 0.5rem; color: #9ca3af; font-size: 0.9rem;">
+        这会调用 MiMo API 实时生成语音（约需 2-3 秒）
+      </p>
+    </div>
+
+    <!-- 本地文件测试 -->
+    <div class="test-section">
+      <h2>💾 本地音频文件测试</h2>
+      <p style="color: #9ca3af; margin-bottom: 1rem;">
+        点击下方任意音频文件试听已预生成的内容
+      </p>
+      <div class="audio-list" id="audioList">
+        <!-- 动态填充 -->
+      </div>
+    </div>
+
+    <!-- 调试控制台 -->
+    <div class="test-section">
+      <h2>🔧 调试命令</h2>
+      <p style="color: #9ca3af; margin-bottom: 1rem; font-size: 0.9rem;">
+        在浏览器控制台 (F12) 中运行以下命令：
+      </p>
+      <code style="display: block; background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 6px; margin-bottom: 0.5rem;">
+        ttsDebug.testPlay()
+      </code>
+      <code style="display: block; background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 6px; margin-bottom: 0.5rem;">
+        ttsDebug.testLocalFile("sample_narrator_1")
+      </code>
+      <code style="display: block; background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 6px;">
+        ttsDebug.showStatus()
+      </code>
+    </div>
+  </div>
+
+  <!-- 日志输出 -->
+  <div class="status" id="logOutput" style="position: fixed; bottom: 2rem; left: 2rem; right: 10rem; max-height: 200px; opacity: 0.9;"></div>
+
+  <!-- 加载 TTS 系统 -->
+  <!-- Howler.js 音频库 (本地) -->
+  <script src="js/lib/howler.min.js"></script>
+
+  <!-- TTS 系统 -->
+  <script src="js/tts-config.js"></script>
+  <script src="js/tts-manager.js"></script>
+
+  <script>
+    // 音频文件列表
+    const audioFiles = [
+      { id: 'sample_narrator_1', name: '🎙️ 旁白开场', desc: '暴雨夜，海浪拍打着礁石...' },
+      { id: 'sample_broadcast_1', name: '📢 广播系统', desc: '欢迎来到零点协议...' },
+      { id: 'sample_nurse_1', name: '💉 护士对话', desc: '别、别过来……' },
+      { id: 'sample_lawyer_1', name: '👔 律师对话', desc: '我是律师，我只相信证据...' },
+      { id: 'sample_reporter_1', name: '📸 记者对话', desc: '你们听我说！这绝对不是意外！' },
+      { id: 'test_api', name: '✅ API 测试', desc: '你好，这是一个测试...' }
+    ];
+
+    // 初始化
+    document.addEventListener('DOMContentLoaded', () => {
+      log('🎙️ 页面加载完成', 'info');
+      renderAudioList();
+      
+      // 检查 TTS 是否加载
+      setTimeout(() => {
+        if (window.TTSManager) {
+          log('✅ TTS Manager 已加载', 'success');
+          checkStatus();
+        } else {
+          log('❌ TTS Manager 未加载！请检查 js 文件路径', 'error');
+        }
+      }, 500);
+    });
+
+    // 渲染音频列表
+    function renderAudioList() {
+      const container = document.getElementById('audioList');
+      container.innerHTML = audioFiles.map(file => `
+        <div class="audio-item" onclick="playLocalFile('${file.id}', this)" data-id="${file.id}">
+          <div class="audio-name">${file.name}</div>
+          <div class="audio-desc">${file.desc}</div>
+        </div>
+      `).join('');
+    }
+
+    // 播放本地文件
+    async function playLocalFile(id, element) {
+      log(`▶️ 尝试播放: ${id}`, 'info');
+      
+      // 移除其他播放状态
+      document.querySelectorAll('.audio-item').forEach(el => el.classList.remove('playing'));
+      if (element) element.classList.add('playing');
+
+      try {
+        await window.tts.play({
+          text: '测试播放',
+          dialogueId: id,
+          speaker: 'narrator'
+        });
+        log(`✅ 播放成功: ${id}`, 'success');
+      } catch (e) {
+        log(`❌ 播放失败: ${id} - ${e.message}`, 'error');
+      }
+    }
+
+    // 测试实时 TTS
+    async function testRealtimeTTS() {
+      const btn = document.getElementById('btnTestAPI');
+      btn.disabled = true;
+      btn.textContent = '⏳ 正在生成...';
+
+      log('🌐 开始调用实时 TTS API...', 'info');
+
+      try {
+        await window.tts.play({
+          text: '你好！这是灯塔零点协议的语音系统测试。如果你能听到这段话，说明一切正常！',
+          speaker: 'narrator',
+          emotion: '(开心, 活泼) ',
+          dialogueId: 'realtime_test'
+        });
+        
+        log('✅ 实时 TTS 测试成功！你应该能听到声音了。', 'success');
+      } catch (e) {
+        log(`❌ 实时 TTS 失败: ${e.message}`, 'error');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = '🔄 再次测试实时 TTS';
+      }
+    }
+
+    // 检查状态
+    function checkStatus() {
+      const statusEl = document.getElementById('status');
+      
+      if (!window.TTSManager) {
+        statusEl.innerHTML = '<span class="log-error">❌ TTS Manager 未加载</span>';
+        return;
+      }
+
+      const status = window.TTSManager.getStatus();
+      
+      statusEl.innerHTML = `
+<span class="log-info">📊 TTS 系统状态:</span>
+${Object.entries(status).map(([key, value]) => 
+  `<span class="log-${typeof value === 'boolean' ? (value ? 'success' : 'warn') : 'info'}">
+   • ${key}: ${JSON.stringify(value)}
+  </span>`
+).join('\n')}
+
+<span class="log-info">
+💡 提示:
+  • 如果 "userHasInteracted" 为 false，请先点击页面上任意位置
+  • 如果 "enabled" 为 false，点击右下角 🎙️ 按钮开启语音
+</span>`;
+    }
+
+    // 日志函数
+    function log(message, type = 'info') {
+      const logEl = document.getElementById('logOutput');
+      const time = new Date().toLocaleTimeString();
+      const className = `log-${type}`;
+      logEl.innerHTML += `<div class="${className}">[${time}] ${message}</div>`;
+      logEl.scrollTop = logEl.scrollHeight;
+      
+      console.log(`[TTS Test] ${message}`);
+    }
+
+    function clearLog() {
+      document.getElementById('logOutput').innerHTML = '';
+      document.getElementById('status').innerHTML = '';
+    }
+  </script>
+</body>
+</html>

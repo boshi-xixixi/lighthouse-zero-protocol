@@ -1,0 +1,202 @@
+{
+  "ch1_intro": {
+    "text": "暴雨夜，海浪拍打着礁石。你在一座废弃灯塔的二层醒来，头痛欲裂。手腕上多了一个金属手环，上面刻着编号：",
+    "speaker": "narrator",
+    "voice": "白桦",
+    "emotion": "(低沉, 缓慢, 带着不祥的预感)",
+    "priority": "high",
+    "generated_at": "2026-05-17 07:26:15"
+  },
+  "1-1": {
+    "text": "你走下螺旋楼梯，看到另外三人：01号律师，西装湿透，神情冷峻。02号护士，白大褂沾泥，缩在角落发抖。",
+    "speaker": "narrator",
+    "voice": "白桦",
+    "emotion": "(低沉, 缓慢, 描述性的)",
+    "priority": "high",
+    "generated_at": "2026-05-17 07:26:32"
+  },
+  "ch1_end": {
+    "text": "你的选择决定了初始方向。广播里传来倒计时声：距离下一阶段还有45分钟。暴雨更大了。",
+    "speaker": "broadcast",
+    "voice": "苏打",
+    "emotion": "(机械, 冰冷, 毫无起伏)",
+    "priority": "medium",
+    "generated_at": "2026-05-17 07:26:40"
+  },
+  "ch2_intro": {
+    "text": "你和记者03号同时发现了一份藏在电台后面的名单——那是三年前海鸥号的乘客登船顺序表。但有几个名字被红",
+    "speaker": "narrator",
+    "voice": "白桦",
+    "emotion": "(低沉, 缓慢, 暗流涌动)",
+    "priority": "high",
+    "generated_at": "2026-05-17 07:26:46"
+  },
+  "2-1": {
+    "text": "名单在你手中。律师的背影微微僵硬，像是在防备什么。护士的呼吸变得急促——她似乎知道些什么。这份名单可",
+    "speaker": "narrator",
+    "voice": "白桦",
+    "emotion": "(低沉, 紧张, 压迫感)",
+    "priority": "high",
+    "generated_at": "2026-05-17 07:26:58"
+  },
+  "ch2_end": {
+    "text": "你的选择改变了信息的流向。有人在微笑，有人皱起了眉。广播再次响起：距离零点还有30分钟。",
+    "speaker": "broadcast",
+    "voice": "苏打",
+    "emotion": "(机械, 冰冷, 毫无起伏)",
+    "priority": "medium",
+    "generated_at": "2026-05-17 07:27:02"
+  },
+  "ch3_intro": {
+    "text": "你打开了04号档案袋，里面是你的档案。编号04，身份：自由职业者。备注：三年前曾以乘客身份登上海鸥号",
+    "speaker": "narrator",
+    "voice": "白桦",
+    "emotion": "(低沉, 紧张, 真相浮出水面)",
+    "priority": "high",
+    "generated_at": "2026-05-17 07:27:14"
+  },
+  "3-1": {
+    "text": "护士站了起来，双手颤抖。律师停止了摆弄电子锁的动作。记者握紧了相机，眼神在你和护士之间来回移动。一份",
+    "speaker": "narrator",
+    "voice": "白桦",
+    "emotion": "(低沉, 紧迫, 关键时刻)",
+    "priority": "high",
+    "generated_at": "2026-05-17 07:27:32"
+  },
+  "ch3_end": {
+    "text": "距离零点还有15分钟。出口即将锁定。提醒：投票功能已开启。",
+    "speaker": "broadcast",
+    "voice": "苏打",
+    "emotion": "(机械, 但隐约有一丝人味)",
+    "priority": "medium",
+    "generated_at": "2026-05-17 07:27:35"
+  },
+  "ch4_intro": {
+    "text": "暴雨更大了。灯塔在风中发出嘎吱声响。",
+    "speaker": "narrator",
+    "voice": "白桦",
+    "emotion": "(低沉, 紧迫, 终局将至)",
+    "priority": "high",
+    "generated_at": "2026-05-17 07:27:39"
+  },
+  "4-1": {
+    "text": "铁门就在眼前。手环上的数字在倒数。律师在看表——他好像在等什么。记者在犹豫要不要公开她的录音。护士的",
+    "speaker": "narrator",
+    "voice": "白桦",
+    "emotion": "(低沉, 紧迫, 最后的抉择)",
+    "priority": "high",
+    "generated_at": "2026-05-17 07:27:59"
+  },
+  "ch4_end": {
+    "text": "无论你选择了什么，灯塔的大门都将开启。但门外的世界，未必是你期待的样子。有些答案，一旦知道就无法遗忘",
+    "speaker": "narrator",
+    "voice": "白桦",
+    "emotion": "(低沉, 感慨, 余韵)",
+    "priority": "medium",
+    "generated_at": "2026-05-17 06:57:12"
+  },
+  "ending_truth": {
+    "text": "你选择了公开所有证据。灯塔的广播系统传出你的声音——沉船案的真相，终于大白于天下。律师沉默了。护士捂",
+    "speaker": "narrator",
+    "voice": "白桦",
+    "emotion": "(释然, 温暖, 真相大白)",
+    "priority": "high",
+    "generated_at": "2026-05-17 06:57:28"
+  },
+  "ending_escape": {
+    "text": "你选择了自保。当其他人还在争论谁该相信谁时，你已经找到了出口的钥匙。铁门在你身后重重关上，将争吵、谎",
+    "speaker": "narrator",
+    "voice": "白桦",
+    "emotion": "(疲惫, 庆幸, 但带着遗憾)",
+    "priority": "high",
+    "generated_at": "2026-05-17 06:57:44"
+  },
+  "ending_backfire": {
+    "text": "你的选择引发了连锁反应。信任在一瞬间崩塌，所有人都在互相指责。是你！是你出卖了我们！律师的声音在空旷",
+    "speaker": "narrator",
+    "voice": "白桦",
+    "emotion": "(绝望, 崩溃, 恐惧)",
+    "priority": "high",
+    "generated_at": "2026-05-17 06:57:56"
+  },
+  "ending_zero": {
+    "text": "你触发了零点协议。灯塔的广播系统突然切换到一个陌生的频率。一个没有感情的机械声响起：欢迎，04号观察",
+    "speaker": "narrator",
+    "voice": "白桦",
+    "emotion": "(平静, 超脱, 揭示真相)",
+    "priority": "high",
+    "generated_at": "2026-05-17 06:58:11"
+  },
+  "system_welcome": {
+    "text": "欢迎来到零点协议。你们之中，有一个人知道三年前海鸥号沉船案的真相。想活着离开，就把他交出来。计时开始",
+    "speaker": "broadcast",
+    "voice": "苏打",
+    "emotion": "(机械, 冰冷, 毫无起伏)",
+    "priority": "high",
+    "generated_at": "2026-05-17 06:58:16"
+  },
+  "system_countdown": {
+    "text": "距离零点还有15分钟。出口即将锁定。",
+    "speaker": "broadcast",
+    "voice": "苏打",
+    "emotion": "(机械, 冰冷, 毫无起伏)",
+    "priority": "medium",
+    "generated_at": "2026-05-17 06:58:19"
+  },
+  "system_vote": {
+    "text": "投票功能已开启。票数最多的人将被视为知情者。",
+    "speaker": "broadcast",
+    "voice": "苏打",
+    "emotion": "(机械, 冰冷, 毫无起伏)",
+    "priority": "medium",
+    "generated_at": "2026-05-17 06:58:23"
+  },
+  "ch1_broadcast": {
+    "text": "欢迎来到零点协议。你们之中，有一个人知道三年前海鸥号沉船案的真相。想活着离开，就把他交出来。计时开始",
+    "speaker": "broadcast",
+    "voice": "苏打",
+    "emotion": "(机械, 冰冷, 毫无起伏)",
+    "priority": "high",
+    "generated_at": "2026-05-17 07:26:21"
+  },
+  "1-1_nurse": {
+    "text": "别、别过来……我什么都不知道……求你们别看我……",
+    "speaker": "nurse",
+    "voice": "冰糖",
+    "emotion": "(颤抖, 害怕, 抽泣)",
+    "priority": "high",
+    "generated_at": "2026-05-17 07:26:36"
+  },
+  "ch2_reporter": {
+    "text": "我们共享信息吧？我也告诉你我在档案袋里看到了什么。",
+    "speaker": "reporter",
+    "voice": "白桦",
+    "emotion": "(急促, 期待, 带着试探)",
+    "priority": "high",
+    "generated_at": "2026-05-17 07:26:50"
+  },
+  "ch3_reporter": {
+    "text": "我刚对比了名单和律师的证词——他在撒谎。他说那天晚上他在甲板上，但名单显示他在船舱底层。",
+    "speaker": "reporter",
+    "voice": "白桦",
+    "emotion": "(急促, 压低声音, 揭秘时的兴奋)",
+    "priority": "high",
+    "generated_at": "2026-05-17 07:27:18"
+  },
+  "ch3_nurse": {
+    "text": "我……我想起来了。我认得这个被划掉的名字。",
+    "speaker": "nurse",
+    "voice": "冰糖",
+    "emotion": "(颤抖, 害怕, 突然想起什么)",
+    "priority": "high",
+    "generated_at": "2026-05-17 07:27:22"
+  },
+  "ch4_broadcast": {
+    "text": "距离零点还有15分钟。出口即将锁定。出口需要两把钥匙。一把在你们各自的手环里激活——完成各自的选择即",
+    "speaker": "broadcast",
+    "voice": "苏打",
+    "emotion": "(机械, 冰冷, 毫无起伏)",
+    "priority": "high",
+    "generated_at": "2026-05-17 07:27:46"
+  }
+}

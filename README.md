@@ -1,5 +1,62 @@
-# Vue 3 + Vite
+# 🏮 灯塔零号协议
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+> 抖音AI创变者参赛作品 — 基于 Vue3 的互动叙事解谜游戏
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## 🎮 在线体验
+
+👉 [点击体验灯塔零号协议](https://ldxy.shawu.chat/)
+
+## 📖 项目简介
+
+灯塔零号协议是一款沉浸式互动叙事游戏，玩家将扮演调查员，在充满悬疑的故事中做出选择，解开谜题，揭示隐藏的真相。
+
+### 核心特性
+
+- **互动叙事** — 4个章节的沉浸式剧情，每个选择都将影响故事走向
+- **解谜小游戏** — 6种不同类型的解谜玩法（电路连接、密码破译、三消、记忆、滑块、推箱子）
+- **多结局系统** — 根据玩家的选择和MBTI性格测试，走向不同的结局
+- **TTS语音合成** — AI驱动的角色语音，增强沉浸体验
+- **MBTI性格测试** — 游戏内置SBTI性格评估系统
+
+## 🛠 技术栈
+
+- **前端框架**: Vue 3 + Vue Router + Pinia
+- **构建工具**: Vite
+- **CSS方案**: UnoCSS
+- **音频引擎**: Howler.js
+- **TTS**: 蜜蜜语音合成 API
+
+## 🚀 本地运行
+
+```bash
+# 安装依赖
+npm install
+
+# 启动开发服务器
+npm run dev
+
+# 构建生产版本
+npm run build
+```
+
+## 📁 项目结构
+
+```
+├── src/
+│   ├── components/     # 组件（含6种解谜游戏）
+│   ├── views/          # 页面视图
+│   ├── stores/         # Pinia状态管理
+│   ├── composables/    # 组合式函数
+│   ├── utils/          # 工具函数（TTS、BGM等）
+│   ├── data/           # 游戏数据配置
+│   └── router/         # 路由配置
+├── douyin/             # 抖音端独立版本
+│   ├── audio/          # TTS音频资源
+│   ├── js/             # 游戏逻辑
+│   └── css/            # 样式
+└── public/             # 静态资源
+```
+
+## 📄 License
+
+MIT
